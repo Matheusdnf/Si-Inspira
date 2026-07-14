@@ -1,0 +1,14 @@
+{
+  "name": "si-inspira-site",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "echo 'Build not required'"
+  },
+  "dependencies": {
+    "googleapis": "^140.0.0"
+  }
+}
