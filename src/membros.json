@@ -1,0 +1,38 @@
+[
+  {
+    "nome": "Anna Claudia dos Santos Nobre",
+    "cargo": "Coordenadora do Projeto",
+    "descricao": "Docente permanente focada no direcionamento acadêmico e publicações das obras.",
+    "icone": "public/fotos/anna.jpg"
+  },
+  {
+    "nome": "Matheus Diniz Fernandes",
+    "cargo": "Membro da Equipe",
+    "descricao": "Responsável pela administração, infraestrutura e desenvolvimento das soluções web.",
+    "icone": "public/fotos/matheus.jpg"
+  },
+  {
+    "nome": "Giovanna Kailany de Melo",
+    "cargo": "Membro da Equipe",
+    "descricao": "Atua ativamente na revisão ortográfica, diagramação e síntese de relatórios acadêmicos.",
+    "icone": "public/fotos/giovanna.jpg"
+  },
+  {
+    "nome": "Beatriz Vitoria da Costa",
+    "cargo": "Membro da Equipe",
+    "descricao": "Atua ativamente na revisão ortográfica, diagramação e síntese de relatórios acadêmicos.",
+    "icone": "public/fotos/bia.jpg"
+  },
+  {
+    "nome": "Maria Eloisa da Silva Santos",
+    "cargo": "Membro da Equipe",
+    "descricao": "Atua ativamente na revisão ortográfica, diagramação e síntese de relatórios acadêmicos.",
+    "icone": "public/fotos/eloisa.jpg"
+  },
+  {
+    "nome": "José Salustiano Neto Junior",
+    "cargo": "Membro da Equipe",
+    "descricao": "Atua ativamente na revisão ortográfica, diagramação e síntese de relatórios acadêmicos.",
+    "icone": "public/fotos/jose.jpg"
+  }
+]
