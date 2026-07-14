@@ -1,0 +1,10 @@
+.swiper-pagination-bullet-active {
+  background: #2b2d7c !important;
+}
+.swiper {
+  padding-bottom: 3rem !important;
+  padding-top: 0.5rem !important;
+}
+html, body {
+  overscroll-behavior-y: none;
+}
