@@ -1,8 +1,5 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "outputDirectory": "src",
-  "rewrites": [
-    { "source": "/api/livros", "destination": "/api/obter-livros" }
-  ]
+  "rewrites": [{ "source": "/api/livros", "destination": "/api/obter-livros" }]
 }
