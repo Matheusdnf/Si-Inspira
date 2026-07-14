@@ -66,7 +66,9 @@ export default async function handler(req, res) {
       };
     });
 
-    res.setHeader("Cache-Control", "s-maxage=300");
+    // Cache agressivo: Retorna a lista instantaneamente da memória da Vercel (s-maxage=1800 -> 30 min)
+    // Se passar de 30 min, entrega o antigo rápido e atualiza por trás dos panos (stale-while-revalidate=86400)
+    res.setHeader("Cache-Control", "s-maxage=1800, stale-while-revalidate=86400");
     return res.status(200).json(livros);
   } catch (error) {
     console.error("Erro interno na API do Google Drive:", error);

@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             livro.capa
               ? `
           <div id="img-cover-${idx}" class="relative w-56 h-80 shadow-2xl rounded-lg overflow-hidden transform transition-all duration-300 group-hover:-translate-y-2 group-hover:rotate-1">
-            <img src="${livro.capa}" alt="Capa de ${livro.titulo}" class="w-full h-full object-cover" onerror="document.getElementById('img-cover-${idx}').classList.add('hidden'); document.getElementById('fallback-cover-${idx}').classList.remove('hidden');" />
+            <img src="${livro.capa}" alt="Capa de ${livro.titulo}" loading="lazy" class="w-full h-full object-cover" onerror="document.getElementById('img-cover-${idx}').classList.add('hidden'); document.getElementById('fallback-cover-${idx}').classList.remove('hidden');" />
           </div>
           `
               : ""
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             membro.icone &&
             (membro.icone.includes("/") || membro.icone.includes("."));
           const avatarHtml = isImage
-            ? `<img src="${membro.icone}" alt="${membro.nome}" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow-sm">`
+            ? `<img src="${membro.icone}" alt="${membro.nome}" loading="lazy" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow-sm">`
             : `<div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400 text-3xl"><i class="fa-solid ${membro.icone || "fa-user"}"></i></div>`;
 
           return `
