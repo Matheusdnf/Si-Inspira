@@ -1,5 +1,9 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "rewrites": [{ "source": "/api/livros", "destination": "/api/obter-livros" }]
+  "rewrites": [
+    { "source": "/api/livros", "destination": "/api/obter-livros" },
+    { "source": "/api/tutoriais", "destination": "/api/obter-tutoriais" },
+    { "source": "/api/videos", "destination": "/api/obter-videos" }
+  ]
 }
