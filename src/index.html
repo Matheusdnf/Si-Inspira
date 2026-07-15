@@ -41,6 +41,12 @@
             <a href="#livros" class="hover:text-gray-300 transition-colors"
               >Livros Publicados</a
             >
+            <a href="#tutoriais" class="hover:text-gray-300 transition-colors"
+              >Tutoriais e Cartilhas</a
+            >
+            <a href="#videos" class="hover:text-gray-300 transition-colors"
+              >Vídeos</a
+            >
             <a href="#membros" class="hover:text-gray-300 transition-colors"
               >Membros</a
             >
@@ -112,7 +118,7 @@
               promovendo impacto acadêmico, social, econômico e regional.
             </p>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <!-- CARD 1: MISSÃO -->
             <div
               class="p-6 bg-gray-50 rounded-2xl border-l-4 border-[#2b2d7c] shadow-sm hover:shadow-md transition-shadow"
@@ -373,6 +379,70 @@
       </div>
     </section>
 
+    <!-- TUTORIAIS E CARTILHAS -->
+    <section id="tutoriais" class="py-20 bg-gray-50 scroll-mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#2b2d7c] mb-4">
+            Tutoriais e Cartilhas
+          </h2>
+          <div class="h-1 w-20 bg-[#2b2d7c] mx-auto rounded-full"></div>
+          <p class="text-gray-600 mt-4">
+            Lista de materiais sincronizada automaticamente em tempo real com a pasta do
+            Google Drive.
+          </p>
+        </div>
+
+        <div class="swiper swiper-tutoriais px-8 relative">
+          <div id="grid-tutoriais" class="swiper-wrapper">
+            <!-- Os tutoriais vindo do Drive serão listados aqui de forma assíncrona -->
+            <p class="text-center text-gray-500 w-full col-span-full py-10">
+              Buscando materiais no repositório...
+            </p>
+          </div>
+          <div class="swiper-pagination swiper-pagination-tutoriais"></div>
+          <div
+            class="swiper-button-next swiper-button-next-tutoriais !text-[#2b2d7c]"
+          ></div>
+          <div
+            class="swiper-button-prev swiper-button-prev-tutoriais !text-[#2b2d7c]"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VÍDEOS -->
+    <section id="videos" class="py-20 bg-white scroll-mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#2b2d7c] mb-4">
+            Vídeos (tutoriais e cartilhas)
+          </h2>
+          <div class="h-1 w-20 bg-[#2b2d7c] mx-auto rounded-full"></div>
+          <p class="text-gray-600 mt-4">
+            Lista de vídeos sincronizada automaticamente em tempo real com a pasta do
+            Google Drive.
+          </p>
+        </div>
+
+        <div class="swiper swiper-videos px-8 relative">
+          <div id="grid-videos" class="swiper-wrapper">
+            <!-- Os vídeos vindo do Drive serão listados aqui de forma assíncrona -->
+            <p class="text-center text-gray-500 w-full col-span-full py-10">
+              Buscando vídeos no repositório...
+            </p>
+          </div>
+          <div class="swiper-pagination swiper-pagination-videos"></div>
+          <div
+            class="swiper-button-next swiper-button-next-videos !text-[#2b2d7c]"
+          ></div>
+          <div
+            class="swiper-button-prev swiper-button-prev-videos !text-[#2b2d7c]"
+          ></div>
+        </div>
+      </div>
+    </section>
+
     <!-- MEMBROS DO PROJETO -->
     <section id="membros" class="py-20 bg-white scroll-mt-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -409,11 +479,8 @@
           &copy; 2026 SI Inspira. Todos os direitos reservados.
         </p>
         <div class="mt-4 sm:mt-0 space-x-4 text-lg">
-          <a href="#" class="hover:text-gray-300"
-            ><i class="fa-brands fa-github"></i
-          ></a>
-          <a href="#" class="hover:text-gray-300"
-            ><i class="fa-solid fa-envelope"></i
+          <a href="https://www.instagram.com/projeto.si.inspira/" target="_blank" class="hover:text-gray-300 transition-colors"
+            ><i class="fa-brands fa-instagram"></i
           ></a>
         </div>
       </div>
