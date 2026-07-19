@@ -4,6 +4,9 @@
   "rewrites": [
     { "source": "/api/livros", "destination": "/api/obter-livros" },
     { "source": "/api/tutoriais", "destination": "/api/obter-tutoriais" },
-    { "source": "/api/videos", "destination": "/api/obter-videos" }
+    { "source": "/api/videos", "destination": "/api/obter-videos" },
+    { "source": "/api/produtos", "destination": "/api/obter-produtos" },
+    { "source": "/api/pastas", "destination": "/api/obter-pastas" },
+    { "source": "/api/jogos", "destination": "/api/obter-jogos" }
   ]
 }
