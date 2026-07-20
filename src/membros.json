@@ -8,31 +8,31 @@
   {
     "nome": "Matheus Diniz Fernandes",
     "cargo": "Membro da Equipe",
-    "descricao": "Responsável pela administração, infraestrutura e desenvolvimento das soluções web (desenvolvedor do Site Si-Inpira).",
+    "descricao": "Aluno de Sistemas de Informação (desenvolvedor do Site Si-Inpira).",
     "icone": "public/fotos/matheus.jpg"
   },
   {
     "nome": "Giovanna Kailany de Melo",
     "cargo": "Membro da Equipe",
-    "descricao": "Atua ativamente na revisão ortográfica, diagramação e síntese de relatórios acadêmicos.",
+    "descricao": "Aluna de Sistemas de Informação",
     "icone": "public/fotos/giovanna.jpg"
   },
   {
     "nome": "Beatriz Vitoria da Costa",
     "cargo": "Membro da Equipe",
-    "descricao": "Atua ativamente na revisão ortográfica, diagramação e síntese de relatórios acadêmicos.",
+    "descricao": "Aluna de Sistemas de Informação",
     "icone": "public/fotos/bia.jpg"
   },
   {
     "nome": "Maria Eloisa da Silva Santos",
     "cargo": "Membro da Equipe",
-    "descricao": "Atua ativamente na revisão ortográfica, diagramação e síntese de relatórios acadêmicos.",
+    "descricao": "Aluna de Sistemas de Informação",
     "icone": "public/fotos/eloisa.jpg"
   },
   {
     "nome": "José Salustiano Neto Junior",
     "cargo": "Membro da Equipe",
-    "descricao": "Atua ativamente na revisão ortográfica, diagramação e síntese de relatórios acadêmicos.",
+    "descricao": "Aluno de Sistemas de Informação",
     "icone": "public/fotos/jose.jpg"
   }
 ]
