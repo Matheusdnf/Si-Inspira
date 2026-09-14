@@ -1,6 +1,7 @@
 {
   "version": 2,
   "cleanUrls": true,
+  "outputDirectory": "src",
   "rewrites": [
     { "source": "/api/livros", "destination": "/api/obter-livros" },
     { "source": "/api/tutoriais", "destination": "/api/obter-tutoriais" },
