@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Si Inspira
 
 Repositório do site Si Inspira: um catálogo dinâmico de conteúdos (livros, tutoriais, vídeos, jogos, produtos) hospedado na Vercel e alimentado por pastas do Google Drive.
@@ -107,3 +108,6 @@ vercel --prod # publica em produção
 ```
 
 Certifique-se de que `GOOGLE_CREDENTIALS_JSON` e `GOOGLE_DRIVE_FOLDER_ID` estejam configuradas no painel da Vercel (Project Settings → Environment Variables) antes do primeiro deploy.
+=======
+
+>>>>>>> 2fdc26b49f73a5ec592a73c3fe686317ce1f6ae2
