@@ -1,94 +1,109 @@
-# SI Inspira - Projeto Acadêmico
+# Si Inspira
 
-Este é o repositório do site **SI Inspira**, uma plataforma digital desenvolvida para servir como acervo de materiais acadêmicos. O projeto apresenta livros publicados, tutoriais, cartilhas, vídeos, produtos técnicos, jogos didáticos e apresentações (PTTs) associados ao projeto.
+Repositório do site Si Inspira: um catálogo dinâmico de conteúdos (livros, tutoriais, vídeos, jogos, produtos) hospedado na Vercel e alimentado por pastas do Google Drive.
 
 ## Como o Projeto Funciona
 
-O site opera como um repositório dinâmico. Em vez de armazenar arquivos e mídias estáticas diretamente no código, ele se integra à API do **Google Drive**. 
-Os arquivos de cada categoria (livros, jogos, vídeos, etc.) ficam salvos em pastas específicas no Google Drive. Quando um usuário acessa o site, o frontend faz uma requisição para a nossa API (Serverless Functions na Vercel), que por sua vez se autentica no Google Drive usando uma Service Account, lista os arquivos da pasta e retorna esses dados para serem exibidos na interface do usuário através de carrosséis interativos.
+O site opera como um repositório dinâmico. Em vez de armazenar arquivos e mídias estáticas diretamente no código, ele se integra à API do Google Drive. Os arquivos de cada categoria (livros, jogos, vídeos, etc.) ficam salvos em pastas específicas no Google Drive. Quando um usuário acessa o site, o frontend faz uma requisição para a nossa API, que se autentica no Google Drive usando uma Service Account, lista os arquivos da pasta e retorna esses dados para serem exibidos na interface do usuário através de carrosséis interativos.
 
-Dessa forma, a atualização do conteúdo do site (adicionar novos livros, tutoriais, etc.) é feita de forma orgânica, apenas adicionando ou removendo os arquivos diretamente nas pastas correspondentes do Google Drive, sem a necessidade de alterar o código-fonte ou realizar novos deploys da aplicação.
+Dessa forma, a atualização do conteúdo do site (adicionar novos livros, tutoriais, etc.) é feita de forma orgânica: basta adicionar ou remover os arquivos diretamente nas pastas correspondentes do Google Drive, sem necessidade de alterar o código-fonte ou realizar novos deploys da aplicação.
 
 ## Arquitetura do Projeto
 
-O projeto é dividido em duas partes principais operando integradas através da plataforma **Vercel**:
+O projeto é dividido em duas partes principais, operando integradas através da plataforma Vercel:
 
-1. **Frontend (Client-side):** 
-   - Localizado na pasta `src/`.
-   - É uma aplicação Vanilla (sem frameworks complexos como React ou Angular), utilizando HTML5, CSS3 e JavaScript.
-   - O layout é construído com **Tailwind CSS** (via CDN) para uma estilização ágil e responsiva.
-   - Utiliza a biblioteca **Swiper.js** para criar os carrosséis de itens e **FontAwesome** para a iconografia.
-   - O arquivo `script.js` cuida da lógica de menu responsivo (Drawer) e realiza as requisições assíncronas (`fetch`) para os endpoints da API, populando a interface dinamicamente.
+- **Frontend** (`src/`): HTML + CSS (Tailwind) + JS puro, servido como estático (`outputDirectory: src` no `vercel.json`).
+- **Backend** (`api/`): Serverless Functions (Node.js) que buscam os arquivos no Google Drive via `googleapis` e retornam JSON para o frontend consumir.
 
-2. **Backend (Serverless API):**
-   - Localizado na pasta `api/`.
-   - Utiliza **Node.js** em formato de Serverless Functions da Vercel.
-   - Cada arquivo (ex: `obter-livros.js`) é um endpoint independente responsável por consultar uma pasta específica no Google Drive utilizando a biblioteca oficial `googleapis`.
-   - As rotas são reescritas de forma amigável através das configurações no arquivo `vercel.json` (ex: a requisição para `/api/livros` aponta internamente para a execução do script `obter-livros.js`).
+### Tecnologias Utilizadas
 
-## Tecnologias Utilizadas
+- **HTML5, CSS3, JavaScript**
+- **Tailwind CSS** — framework utilitário para estilização e design responsivo
+- **Node.js** — ambiente de execução das funções de backend
+- **Google API Node.js Client (`googleapis`)** — SDK para interagir e buscar dados do Google Drive
+- **Vercel** — hospedagem e execução das Serverless Functions
 
-* **HTML5, CSS3, JavaScript (ES6+)**: Base do Frontend.
-* **Tailwind CSS (via CDN)**: Framework utilitário para estilização e design responsivo.
-* **Swiper.js**: Biblioteca para os carrosséis de conteúdo (`sliders`).
-* **FontAwesome**: Biblioteca de ícones.
-* **Node.js**: Ambiente de execução para as funções de backend.
-* **Google API Node.js Client (`googleapis`)**: SDK utilizado para interagir e buscar dados do Google Drive.
-* **Vercel**: Plataforma de hospedagem e execução das Serverless Functions.
+## Como Rodar Localmente
 
-## Como Rodar e Contribuir Localmente
+### 1. Pré-requisitos
 
-### Pré-requisitos
-* Node.js instalado (versão 22 ou superior recomendada no `package.json`).
-* Conta na Vercel e o Vercel CLI instalado globalmente (recomendado para testar a API localmente: `npm i -g vercel`).
-* Credenciais de uma Service Account do Google com acesso de leitura às pastas do Drive do projeto.
+- [Node.js](https://nodejs.org/) instalado (versão 22)
+- Conta na Vercel e o [Vercel CLI](https://vercel.com/docs/cli) instalado globalmente (recomendado para testar a API localmente):
+  ```bash
+  npm i -g vercel
+  ```
+- Acesso à Service Account do Google Cloud usada no projeto (peça as credenciais a quem administra o projeto)
 
-### Passos para Inicialização
+### 2. Clonar o repositório
 
-1. **Clone o repositório:**
-   ```bash
-   git clone <url-do-repositorio>
-   cd "si inspira"
-   ```
+```bash
+git clone https://github.com/Matheusdnf/Si-Inspira.git
+cd Si-Inspira
+```
 
-2. **Instale as dependências:**
-   ```bash
-   npm install
-   ```
+### 3. Instalar dependências
 
-3. **Configure as Variáveis de Ambiente:**
-   - Crie um arquivo `.env` (ou `.env.local`) na raiz do projeto.
-   - Adicione sua variável de ambiente do Google, contendo o JSON da sua Service Account:
-     ```env
-     GOOGLE_CREDENTIALS_JSON='{ "type": "service_account", "project_id": "...", ... }'
-     ```
+```bash
+npm install
+```
 
-4. **Inicie o servidor de desenvolvimento:**
-   - Para emular perfeitamente o ambiente de produção (integrando o frontend estático e as rotas da API serverless), utilize o Vercel CLI:
-     ```bash
-     vercel dev
-     ```
-   - O projeto estará acessível localmente (normalmente em `http://localhost:3000`).
+### 4. Configurar variáveis de ambiente
+
+As chamadas à API do Google Drive exigem credenciais, protegidas por variáveis de ambiente. Crie **dois arquivos** na raiz do projeto: `.env` e `.env.local`, ambos com o mesmo conteúdo:
+
+```
+GOOGLE_CREDENTIALS_JSON='<conteúdo do JSON da Service Account, em uma linha só>'
+GOOGLE_DRIVE_FOLDER_ID="<id da pasta raiz no Google Drive>"
+```
+
+> ⚠️ **Nunca commite esses arquivos.** Confirme que `.env` e `.env.local` estão no `.gitignore` antes de rodar `git add`. Se uma chave privada real for exposta em algum commit (ou README), rotacione-a imediatamente no [Google Cloud Console](https://console.cloud.google.com/iam-admin/serviceaccounts).
+
+Alternativa recomendada: usar o Vercel CLI para puxar as variáveis já configuradas no projeto:
+
+```bash
+vercel link
+vercel env pull .env.local
+```
+
+### 5. Rodar o projeto
+
+```bash
+vercel dev
+```
+
+Isso sobe o frontend estático (`src/`) e as funções serverless (`api/`) juntos, simulando o ambiente de produção da Vercel.
 
 ## Manutenção e Novas Funcionalidades
 
 ### 1. Adicionando ou Removendo Conteúdo Existente
-Para adicionar um novo livro, vídeo ou cartilha, não é necessário alterar o código do sistema. Basta acessar o Google Drive do projeto e inserir ou remover o arquivo na pasta correspondente. O site será atualizado automaticamente, respeitando o tempo de cache da API configurado nos headers da requisição.
+
+Para adicionar um novo livro, vídeo ou cartilha, **não é necessário alterar o código**. Basta acessar o Google Drive do projeto e inserir ou remover o arquivo na pasta correspondente. O site é atualizado automaticamente, respeitando o tempo de cache configurado nos headers da requisição.
 
 ### 2. Adicionando uma Nova Categoria de Conteúdo
-Para adicionar uma nova seção (por exemplo, "Artigos Científicos"), siga os passos abaixo:
 
-1. **No Backend:**
-   - Crie um novo script na pasta `api/` (ex: `obter-artigos.js`). É possível duplicar a estrutura de `api/obter-livros.js` e alterar o valor da variável `folderId` para o identificador da nova pasta no Google Drive.
-   - Atualize o arquivo `vercel.json` adicionando uma nova regra de redirecionamento no bloco `"rewrites"`:
-     ```json
-     { "source": "/api/artigos", "destination": "/api/obter-artigos" }
-     ```
+Para adicionar uma nova seção (ex.: "Artigos Científicos"), siga os passos:
 
-2. **No Frontend:**
-   - No arquivo `src/index.html`, crie uma nova `<section>` baseada nas existentes (contendo um título e a estrutura do `swiper` onde os cards serão renderizados).
-   - Adicione o link de âncora no menu lateral (Drawer) no HTML.
-   - No arquivo `src/script.js`, crie um novo bloco de código para realizar o `fetch("/api/artigos")`, processar os dados recebidos e injetar o HTML dos cards dentro da nova estrutura criada, finalizando com a inicialização de uma nova instância da classe `Swiper`.
+**No Backend:**
 
----
-*Documentação oficial mantida pela equipe do projeto SI Inspira.*
+1. Crie um novo script na pasta `api/` (ex.: `obter-artigos.js`). Pode duplicar a estrutura de `api/obter-livros.js` e alterar o valor da variável `folderId` para o identificador da nova pasta no Google Drive.
+2. Atualize o `vercel.json`, adicionando uma nova regra em `"rewrites"`:
+   ```json
+   { "source": "/api/artigos", "destination": "/api/obter-artigos" }
+   ```
+
+**No Frontend:**
+
+1. Em `src/index.html`, crie uma nova `<section>` baseada nas existentes (título + estrutura do Swiper onde os cards serão renderizados).
+2. Adicione o link de âncora correspondente no menu lateral (Drawer).
+3. Em `src/script.js`, crie um bloco para fazer `fetch("/api/artigos")`, processar os dados recebidos, injetar o HTML dos cards na nova seção e inicializar uma nova instância da classe `Swiper`.
+
+## Deploy
+
+O deploy é feito via Vercel, a partir do branch `main`:
+
+```bash
+vercel        # gera um preview deployment
+vercel --prod # publica em produção
+```
+
+Certifique-se de que `GOOGLE_CREDENTIALS_JSON` e `GOOGLE_DRIVE_FOLDER_ID` estejam configuradas no painel da Vercel (Project Settings → Environment Variables) antes do primeiro deploy.
