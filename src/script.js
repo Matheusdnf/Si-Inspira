@@ -110,6 +110,73 @@ document.addEventListener("DOMContentLoaded", () => {
       gridLivros.innerHTML = `<p class="text-red-500 text-center col-span-full">Não foi possível carregar o acervo digital.</p>`;
     });
 
+  // 1.2 CARREGAR PERIÓDICOS
+  const gridPeriodicos = document.getElementById("grid-periodicos");
+  if (gridPeriodicos) {
+    fetch("/api/periodicos")
+      .then((response) => {
+        if (!response.ok) throw new Error("Erro na resposta do servidor");
+        return response.json();
+      })
+      .then((periodicos) => {
+        if (periodicos.length === 0) {
+          gridPeriodicos.innerHTML = `<p class="text-gray-500 text-center col-span-full">Nenhum periódico foi adicionado à pasta ainda.</p>`;
+          return;
+        }
+
+        gridPeriodicos.innerHTML = periodicos
+          .map(
+            (periodico, idx) => `
+          <div class="swiper-slide flex flex-col items-center max-w-sm group">
+
+            <!-- Capa fallback em CSS (Fica oculta inicialmente se a imagem existir) -->
+            <div id="fallback-cover-per-${idx}" class="${periodico.capa ? "hidden " : ""}relative w-56 h-80 shadow-2xl rounded-r-lg overflow-hidden transform transition-all duration-300 group-hover:-translate-y-2 group-hover:rotate-1 bg-[#2b2d7c] flex flex-col justify-between p-6 border-l-[12px] border-black/20 text-white">
+              <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent pointer-events-none"></div>
+              <div>
+                <p class="text-xs tracking-widest uppercase opacity-75">${periodico.volume}</p>
+                <h3 class="font-bold text-lg mt-2 leading-snug">${periodico.titulo}</h3>
+              </div>
+              <div class="flex justify-between items-end">
+                <span class="text-xs font-semibold opacity-60">SI Inspira</span>
+                <i class="fa-solid ${periodico.icone} text-2xl opacity-40"></i>
+              </div>
+            </div>
+
+            <!-- Capa com Imagem (Se a imagem quebrar, o onerror oculta essa div e mostra o fallback) -->
+            ${
+              periodico.capa
+                ? `
+            <div id="img-cover-per-${idx}" class="relative w-56 h-80 shadow-2xl rounded-lg overflow-hidden transform transition-all duration-300 group-hover:-translate-y-2 group-hover:rotate-1">
+              <img src="${periodico.capa}" alt="Capa de ${periodico.titulo}" loading="lazy" class="w-full h-full object-cover" onerror="document.getElementById('img-cover-per-${idx}').classList.add('hidden'); document.getElementById('fallback-cover-per-${idx}').classList.remove('hidden');" />
+            </div>
+            `
+                : ""
+            }
+            <h4 class="mt-6 font-bold text-lg text-gray-900 text-center px-2 line-clamp-2 h-14">${periodico.titulo}</h4>
+            <p class="text-sm text-gray-500 mb-4">${periodico.edicao}</p>
+            <a href="${periodico.linkDownload}" target="_blank" class="inline-flex items-center gap-2 bg-[#2b2d7c] text-white px-5 py-2 rounded-full font-medium shadow-md hover:bg-[#1d1f59] transition-colors text-sm">
+              <i class="fa-solid fa-eye"></i> Visualizar
+            </a>
+          </div>
+        `,
+          )
+          .join("");
+
+        new Swiper(
+          ".swiper-periodicos",
+          swiperConfig(
+            ".swiper-pagination-periodicos",
+            ".swiper-button-next-periodicos",
+            ".swiper-button-prev-periodicos",
+          ),
+        );
+      })
+      .catch((error) => {
+        console.error("Erro nos periódicos:", error);
+        gridPeriodicos.innerHTML = `<p class="text-red-500 text-center col-span-full">Não foi possível carregar os periódicos.</p>`;
+      });
+  }
+
   // 1.5 CARREGAR TUTORIAIS E CARTILHAS
   const gridTutoriais = document.getElementById("grid-tutoriais");
   if (gridTutoriais) {

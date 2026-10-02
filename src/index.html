@@ -88,6 +88,12 @@
             Livros Publicados</a
           >
           <a
+            href="#periodicos"
+            class="drawer-link hover:text-[#2b2d7c] hover:bg-indigo-50 p-2 rounded transition-colors"
+            ><i class="fa-solid fa-newspaper w-6 text-center text-gray-400"></i>
+            Periódicos</a
+          >
+          <a
             href="#tutoriais"
             class="drawer-link hover:text-[#2b2d7c] hover:bg-indigo-50 p-2 rounded transition-colors"
             ><i class="fa-solid fa-file-pdf w-6 text-center text-gray-400"></i>
@@ -257,7 +263,16 @@
           </h2>
           <div class="h-1 w-16 bg-[#2b2d7c] mx-auto rounded-full"></div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          <div class="bg-white rounded-2xl shadow-sm p-4">
+            <img
+              src="public/pilar/pilar.jpeg"
+              alt="Pilar do SI Inspira: Inclusão, Diversidade, Protagonismo discente, Cocriação com a sociedade, Sustentabilidade, Interdisciplinaridade e Ensino-pesquisa-extensão, sobre a base do Desenvolvimento Regional"
+              class="w-full max-w-sm mx-auto h-auto"
+              loading="lazy"
+            />
+          </div>
+        <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
           <div
             class="bg-white p-6 rounded-2xl shadow-sm text-center hover:-translate-y-1 transition-transform"
           >
@@ -314,6 +329,7 @@
               campo e produção científica.
             </p>
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -448,6 +464,38 @@
           ></div>
           <div
             class="swiper-button-prev swiper-button-prev-livros !text-[#2b2d7c]"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERIÓDICOS -->
+    <section id="periodicos" class="py-20 bg-white scroll-mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#2b2d7c] mb-4">
+            Periódicos
+          </h2>
+          <div class="h-1 w-20 bg-[#2b2d7c] mx-auto rounded-full"></div>
+          <p class="text-gray-600 mt-4">
+            Periódicos do projeto sincronizados automaticamente com a pasta do
+            Google Drive.
+          </p>
+        </div>
+
+        <div class="swiper swiper-periodicos px-8 relative">
+          <div id="grid-periodicos" class="swiper-wrapper">
+            <!-- Os periódicos vindo do Drive serão listados aqui de forma assíncrona -->
+            <p class="text-center text-gray-500 w-full col-span-full py-10">
+              Buscando periódicos no repositório...
+            </p>
+          </div>
+          <div class="swiper-pagination swiper-pagination-periodicos"></div>
+          <div
+            class="swiper-button-next swiper-button-next-periodicos !text-[#2b2d7c]"
+          ></div>
+          <div
+            class="swiper-button-prev swiper-button-prev-periodicos !text-[#2b2d7c]"
           ></div>
         </div>
       </div>
