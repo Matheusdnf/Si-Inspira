@@ -9,6 +9,7 @@
     { "source": "/api/videos", "destination": "/api/obter-videos" },
     { "source": "/api/produtos", "destination": "/api/obter-produtos" },
     { "source": "/api/pastas", "destination": "/api/obter-pastas" },
-    { "source": "/api/jogos", "destination": "/api/obter-jogos" }
+    { "source": "/api/jogos", "destination": "/api/obter-jogos" },
+    { "source": "/api/tipos-si", "destination": "/api/obter-tipos-si" }
   ]
 }
