@@ -445,7 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then((pastas) => {
         if (pastas.length === 0) {
-          gridPastas.innerHTML = `<p class="text-gray-500 text-center col-span-full">Nenhum PTTS foi encontrado no repositório.</p>`;
+          gridPastas.innerHTML = `<p class="text-gray-500 text-center col-span-full">Nenhum PTT foi encontrado no repositório.</p>`;
           return;
         }
 
@@ -462,7 +462,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h3 class="font-bold text-lg mt-2 leading-snug">${pasta.titulo}</h3>
               </div>
               <div class="flex justify-between items-end">
-                <span class="text-xs font-semibold opacity-60">PTTS</span>
+                <span class="text-xs font-semibold opacity-60">PTTs</span>
                 <i class="fa-solid fa-folder-open text-3xl text-[#fbbf24]"></i>
               </div>
             </div>
